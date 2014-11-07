@@ -3,17 +3,33 @@
 	// var drag_origin;
 
 	var elements = {
-    	mobileMenu: document.getElementById('app-header').querySelector('.mobile-menu'),
-    	mobileMenuButton: document.getElementById('app-header').querySelector('.menu-toggle')
+    	mobileMenu: document.getElementById('app-navigation').querySelector('.mobile-menu'),
+    	mobileMenuButton: document.getElementById('app-navigation').querySelector('.menu-toggle'),
+    	mobileMenuButtonIcon: document.getElementById('app-navigation').querySelector('.menu-toggle').querySelector('.fa')
   	};
 
 	elements.mobileMenuButton.addEventListener('click', onMenuClick);
 
 	function onMenuClick(){
+
+		elements.mobileMenu.style.display = 'table';
+
+		elements.mobileMenu.offsetWidth = elements.mobileMenu.offsetWidth;
+
+		apollo.toggleClass(document.documentElement, 'active');
 		apollo.toggleClass(document.body, 'active');
 		apollo.toggleClass(elements.mobileMenuButton, 'active');
 		apollo.toggleClass(elements.mobileMenu, 'active');
+		apollo.toggleClass(elements.mobileMenuButtonIcon, 'fa-reorder fa-close');
+
 		elements.mobileMenuButton.offsetWidth = elements.mobileMenuButton.offsetWidth;
+
+
+		elements.mobileMenu.addEventListener( 'webkitTransitionEnd', function( event ) { 
+			if( !apollo.hasClass(elements.mobileMenu, 'active') ){
+				elements.mobileMenu.style.display = 'none';
+			}
+		}, false );
 
 	}
 	// function onMenuDown(e){

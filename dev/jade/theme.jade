@@ -40,37 +40,44 @@ head
 
 body
   
-  main.container-fluid
+  nav#app-navigation
+    section.header-navigation.hidden-xs
+      include navigation
+    section.header-mobile-navigation.visible-xs
+      section.mobile-menu
+        ul.list-unstyled
+          li 
+            a(href="#")
+              span Home
+          li 
+            a(href="/")
+              span About
+
+          li 
+            a(href="/")
+              span Features
+
+          li 
+            a(href="/")
+              span Contact
+      section.menu-toggle
+        i.fa.fa-reorder
+
+  main.container-fluid 
     section.main-container.row
-      header#app-header.pull-left.col-sm-7.col-xs-12
-        nav.header-navigation.hidden-xs
-          include navigation
-        nav.header-mobile-navigation.visible-xs
-          section.mobile-menu
-            ul.list-unstyled
-              li 
-                a(href="#")
-                  span Home
-              li 
-                a(href="/")
-                  span About
+      
+      div.column-left.col-sm-7.col-xs-12
+        header#app-header
+          section.header-description | Description Here
+          section.header-image
 
-              li 
-                a(href="/")
-                  span Features
-
-              li 
-                a(href="/")
-                  span Contact
-          section.menu-toggle
-            i.fa.fa-reorder
-        
-        section.header-description
-      aside#app-aside.pull-right.col-sm-5.col-xs-12
-        section.aside-posts.row
-          include mock_data/posts
-
-
+      div.column-right.col-sm-5.col-xs-12
+        aside#app-aside
+          section.aside-posts.row
+            include mock_data/posts
+        footer#app-footer
+          | Footer
+  
 
   //- header#app-header
   //-   include header

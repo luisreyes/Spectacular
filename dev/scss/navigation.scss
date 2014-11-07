@@ -1,35 +1,42 @@
-body.active{ overflow: hidden; }
+html,body{ 
+	&.active{ 
+		overflow: hidden;
+		> #app-navigation{top: 0;}
+	}
+}
+
 nav{
-	&.header-navigation{
+	width: 100%;
+	
+	.header-navigation{
 		background-color: $nav-background-color;
 		margin: 0 -15px;
+		font-size: 18px;
 
 		a{ 
-			padding: 8px;
+			padding: 5px 10px ;
 			display: inline-block;
 		}
 
 		.fa{ margin-right: 5px }
 	}
 
-	&.header-mobile-navigation{
+	.header-mobile-navigation{
 		display: none;
 		height: 100%; 
 		font-size: 28px;
 		
 		.mobile-menu{
 			transition: all 250ms;
-
-			opacity: 0;
+			display: none;
 			position: fixed;
-			z-index: 10;
+			opacity: 0;
 			background-color: #fff;
 			margin: 0 -15px;
 			height: 100%;
 			text-align: center;
 
-			display: table;
-			width: calc(100% + 30px);;
+			width: 100%;
 
 			ul{
 				display: table-cell;
@@ -39,13 +46,14 @@ nav{
 					transition: all 250ms ease-in-out 100ms;
 					margin: 50px 0;
 					opacity: 0;
+
+					a{ background-color: transparent;}
 				}
 			}
 
 			&.active{ 
-
 				opacity: 1;
-
+				
 				ul{
 					li{
 						opacity: 1;
