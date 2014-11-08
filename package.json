@@ -25,6 +25,7 @@
     "gulp-autoprefixer": "^1.0.1",
     "gulp-concat": "^2.4.1",
     "gulp-connect": "^2.0.6",
+    "gulp-csslint": "^0.1.5",
     "gulp-ftp": "^1.0.1",
     "gulp-html-prettify": "0.0.1",
     "gulp-jade": "^0.8.0",
@@ -34,6 +35,7 @@
     "gulp-plumber": "^0.6.6",
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^1.1.0",
+    "gulp-scsslint": "0.0.5",
     "gulp-uglify": "^1.0.1",
     "gulp-watch": "^1.1.0",
     "jshint-stylish": "^1.0.0"

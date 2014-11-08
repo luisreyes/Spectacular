@@ -41,8 +41,6 @@ head
 body
   
   nav#app-navigation
-    section.header-navigation.hidden-xs
-      include navigation
     section.header-mobile-navigation.visible-xs
       section.mobile-menu
         ul.list-unstyled
@@ -68,10 +66,23 @@ body
       
       div.column-left.col-sm-7.col-xs-12
         header#app-header
-          section.header-description | Description Here
+          section.header-description-wrapper
+            section.header-description Description Here
           section.header-image
 
       div.column-right.col-sm-5.col-xs-12
+        section.header-navigation.hidden-xs
+          section.hidden-xs
+            a(href="#")
+              i.fa.fa-reorder
+              span Menu
+
+            a(href="#").pull-right
+              i.fa.fa-rss
+                
+            a(href="#").pull-right
+              i.fa.fa-twitter
+
         aside#app-aside
           section.aside-posts.row
             include mock_data/posts

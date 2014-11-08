@@ -1,106 +1,89 @@
-html, body{ margin:0; padding:0; height:100%;  }
+html,
+body { margin: 0; padding: 0; height: 100%;  }
 
-body{ 
+body { 
 	font-size: 13px;
-	font-family:$base-font-family;
+	font-family: $base-font-family;
 }
 
-h1,h2,h3,h4,h5,h6 {
-	font-family:$h-font-family;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 { font-family: $h-font-family; }
+
+a { transition: all 250ms; }
+
+a:link, 
+a:visited { 
+	color: $link-color; 
 }
 
-a{ transition: color 250ms, background-color}
-a:link, a:visited{ color: $nav-link-color; background-color: $nav-link-background-color; }
-a:hover, a:active{ color: $nav-link-hover; background-color: $nav-link-background-hover; text-decoration:none; }
-
-.column-left, .column-right { padding: 0; }
-.column-left{ height: 100%;}
-
-#app-navigation{
-	position: fixed;
-	margin: 0 15px;
-	z-index: 10;
+a:hover, 
+a:active { 
+	color: $link-hover;
 }
 
-#app-header{
+.column-left, 
+.column-right { padding: 0; }
+
+.column-left { height: 100%;}
+
+main,
+.main-container { height: 100%; }
+
+header {
 	
 	height: 100%;
 	width: 100%;
 	padding: 0;
 	position: fixed;
 
-	.header-description{ 
+	.header-description-wrapper { 
 		position: absolute;
-		top: 50%;
-		color: #fff;
-		text-align: center;
+		display: table;
+		height: 100%;
+		z-index: 5;
+		padding: 20px;
 	}
 	
-	.header-image{
+	.header-description { 
+		display: table-cell;
+		color: #fff;
+		vertical-align: middle;
+	}
+	
+	.header-image {
+		
 		height: 100%;
 		background-color: #333;
-		background-image: url(../images/header.jpg);
+		background-image: url('../images/header.jpg');
 		background-repeat: no-repeat;
 		background-size: cover;
-		background-position-x: 50%;
+		background-position: 50% 0;
 
 	}
 }
 
-#app-aside{
-	transform: translateZ(0px);
-	padding-top: 20px;
+aside {
+	transform: translateZ(0);
+	padding-top: 30px;
 	padding-left: 15px;
 	padding-right: 15px;
 	background-color: $base-background-color;
+	border-top: 3px solid $nav-background-color;
 	
-	img{ width:100% }
+	img { width: 100%; }
 
-	.post{
-		border-bottom: 1px solid #EEE;
+	.post {
+		border-bottom: 1px solid #eee;
 	}
 }
 
-#app-footer{
-	min-height:115px;
+footer {
+	min-height: 115px;
 	color: $footer-color;
 	background-color: $footer-background-color;
 }
 
-
-@media (max-width: 768px) {
-
-	html, body { overflow-x: hidden; }
-	.main-container{
-		perspective: 1px;
-		height: 100vh;
-		overflow-x: hidden;
-		overflow-y: auto;
-	}
-
-	#app-header{ 
-		transform: translateZ(-1px) scale(2.1);
-		position: initial;
-		top: initial;
-
-		height: 100%;
-		width: 100%;
-		padding: 0;
-		position: relative;
-
-		// position: fixed;
-		// top: 0;
-	}
-
-	#app-aside{
-		padding-top: 0;
-		.post{
-			border-left: 1px solid #EEE;
-		}
-	}
-}
-
-@media (max-width: 450px) {
-
-	.post{ width: 100% }
-}

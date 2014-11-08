@@ -8,6 +8,8 @@ jade = require('gulp-jade'),
 sass = require('gulp-sass'),
 autoprefixer = require( 'gulp-autoprefixer' ),
 cssmin = require( 'gulp-minify-css' ),
+csslint = require( 'gulp-csslint' ),
+scsslint = require( 'gulp-scsslint' ),
 plumber = require( 'gulp-plumber' ),
 concat = require('gulp-concat'),
 pretty = require('gulp-html-prettify'),
@@ -65,15 +67,23 @@ gulp.task( 'jade', function() {
  // |___/ \__,_||___/|___/
  //
 
-gulp.task( 'sass', function() {
+gulp.task( 'sass',['sass_lint'], function() {
   gulp.src( paths.sass )
     .pipe( plumber())
     .pipe( sass() )
     .pipe( autoprefixer() )
-    .pipe( cssmin({keepSpecialComments:true}) )
+    .pipe( csslint('csslintrc.json') )
+    .pipe( csslint.reporter() ) 
+    //.pipe( cssmin({keepSpecialComments:true}) )
     .pipe( gulp.dest( paths.assets ) )
     .pipe( plumber.stop())
     .pipe( connect.reload() );
+});
+
+gulp.task( 'sass_lint', function(){
+  gulp.src( paths.allSass )
+  .pipe( scsslint('scsslint.yml') )
+  .pipe( scsslint.reporter() ) 
 });
 
 

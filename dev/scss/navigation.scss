@@ -1,32 +1,65 @@
-html,body{ 
-	&.active{ 
+html,
+body { 
+	&.active { 
 		overflow: hidden;
-		> #app-navigation{top: 0;}
+		>nav {top: 0;}
 	}
 }
 
-nav{
-	width: 100%;
+.header-navigation {
+	background-color: $nav-background-color;
+	font-family: $nav-font-family;
+	font-size: 1.3em;
+	position: fixed;
+	width: inherit;
+	height: 34px;
+	z-index: 5;
 	
-	.header-navigation{
-		background-color: $nav-background-color;
-		margin: 0 -15px;
-		font-size: 18px;
-
-		a{ 
-			padding: 5px 10px ;
-			display: inline-block;
-		}
-
-		.fa{ margin-right: 5px }
+	a { 
+		padding: 5px 10px;
+		display: inline-block;
+		transition: all 250ms;
 	}
 
-	.header-mobile-navigation{
+	a:link, 
+	a:visited { 
+		color: $nav-link-color; 
+		background-color: $nav-link-background-color;
+	}
+
+	a:hover, 
+	a:active { 
+		color: $nav-link-hover;
+		background-color: $nav-link-background-hover;
+		text-decoration: none;
+	}
+
+	.fa-reorder { margin-right: 10px; }
+}
+
+nav {
+	position: fixed;
+	margin: 0 15px;
+	z-index: 10;
+	width: 100%;
+	
+	.header-mobile-navigation {
 		display: none;
 		height: 100%; 
 		font-size: 28px;
 		
-		.mobile-menu{
+		a:link, 
+		a:visited { 
+			color: $theme-color; 
+		}
+
+		a:hover, 
+		a:active { 
+			color: $accent-color;
+			text-decoration: none;
+		}
+
+		.mobile-menu {
 			transition: all 250ms;
 			display: none;
 			position: fixed;
@@ -38,36 +71,35 @@ nav{
 
 			width: 100%;
 
-			ul{
+			ul {
 				display: table-cell;
 				vertical-align: middle;
 				
-				li{ 
+				li { 
 					transition: all 250ms ease-in-out 100ms;
 					margin: 50px 0;
 					opacity: 0;
 
-					a{ background-color: transparent;}
+					a { background-color: transparent;}
 				}
 			}
 
-			&.active{ 
+			&.active { 
 				opacity: 1;
-				
-				ul{
-					li{
-						opacity: 1;
-						margin:20px 0;
-					}
+
+				li {
+					opacity: 1;
+					margin: 20px 0;
 				}
 			}
 		}
 
 
-		.menu-toggle{
+		.menu-toggle { 
 			transition: all 250ms;
-
 			
+			// alpha fallback
+			background-color: $accent-color;
 			background-color: $nav-mobile-button-background-color;
 			color: $nav-mobile-button-icon-color;
 			padding: 8px;
@@ -80,12 +112,14 @@ nav{
 			font-size: 28px;
 			bottom: 30px;
 			border-radius: 100%;
-			text-shadow: 0px -1px 0px #999;
-			box-shadow: 0px 1px 1px 0px #333;
+			text-shadow: 0 -1px 0 #999;
+			box-shadow: 0 1px 1px 0 #333;
 
-			&.active{
-				color: $nav-mobile-button-background-color;
+			&.active { 
 				background-color: $nav-mobile-button-icon-color;
+				// alpha fallback
+				color: $accent-color;
+				color: $nav-mobile-button-background-color;
 				text-shadow: none;
 				box-shadow: none;
 			}

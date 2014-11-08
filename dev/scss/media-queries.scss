@@ -1,0 +1,47 @@
+@media (min-width: 768px) {
+	header .header-image {
+		position: fixed;
+		top: 0;
+		width: 60%;
+	}
+}
+
+@media (max-width: 767px) {
+
+	html,
+	body { overflow-x: hidden; }
+
+	.main-container {
+		perspective: 1px;
+		height: 100vh;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+
+	header { 
+		transform: translateZ(-1px) scale(2);
+
+		height: 100%;
+		width: 100%;
+		padding: 0;
+		position: relative;
+		top: inherit;
+	}
+
+	.header-description{
+		font-size: x-large;
+	}
+
+	aside {
+		padding-top: 0;
+
+		.post {
+			border-left: 1px solid #eee;
+		}
+	}
+}
+
+@media (max-width: 450px) {
+
+	.post { width: 100%; }
+}
