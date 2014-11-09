@@ -70,6 +70,18 @@ nav {
 			text-align: center;
 
 			width: 100%;
+			
+			.mobile-menu-header{
+				border-bottom: 1px solid #eee;
+				
+				input{ 
+					border: none;
+					font-size: smaller;
+					color: $accent-color;
+					text-transform: uppercase;
+					text-align: center;
+				}
+			}
 
 			ul {
 				display: table-cell;
@@ -83,7 +95,10 @@ nav {
 					a { background-color: transparent;}
 				}
 			}
-
+			.mobile-menu-footer{
+				border-top:1px solid #eee;
+				i{ padding: 0 30px; }
+			}
 			&.active { 
 				opacity: 1;
 
@@ -116,7 +131,7 @@ nav {
 			box-shadow: 0 1px 1px 0 #333;
 
 			&.active { 
-				background-color: $nav-mobile-button-icon-color;
+				background-color: transparent;
 				// alpha fallback
 				color: $accent-color;
 				color: $nav-mobile-button-background-color;

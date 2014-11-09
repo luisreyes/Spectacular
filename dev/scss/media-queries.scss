@@ -9,13 +9,16 @@
 @media (max-width: 767px) {
 
 	html,
-	body { overflow-x: hidden; }
+	body { 
+		//overflow-x: hidden;
+	}
 
 	.main-container {
 		perspective: 1px;
 		height: 100vh;
-		overflow-x: hidden;
-		overflow-y: auto;
+		//Set with JS to allow scroll event
+		// overflow-x: hidden;
+		// overflow-y: auto;
 	}
 
 	header { 
@@ -29,7 +32,9 @@
 	}
 
 	.header-description{
-		font-size: x-large;
+		font-size: larger;
+		text-align: center;
+		margin-top: 15px;
 	}
 
 	aside {

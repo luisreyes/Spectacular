@@ -1,22 +1,24 @@
 (function(){
 
-  // var elements = {};
+  var elements = {
+    scroll_indicator: document.body.querySelector('.scroll-indicator'),
+    main_container: document.getElementById('app-main').querySelector('.main-container')
+  };
 
-  // document.addEventListener('scroll', onBodyScroll);
+  document.addEventListener('scroll', onBodyScroll);
 
-  // // Background Parallax
-  // var amount = 2;
+  function onBodyScroll(e){
+    hideIndicator();
+  }
 
-  // // Cache Header Section
-  // var h = document.getElementsByTagName('header')[0];
-  // // Add Scroll Listener
-  // document.addEventListener('scroll', onBodyScroll);
-  // // Listener Function
-  // function onBodyScroll(e){
-  //   if( window.innerHeight > window.innerWidth ){
-  //     // Set Style
-  //     h.style.backgroundPositionY = window.pageYOffset/amount +'px';
-  //   }
-  // }
+  function hideIndicator(){
+    if( window.innerWidth < 768 ){
+      console.log('hello');
+      document.removeEventListener('scroll', onBodyScroll);
+      elements.main_container.style.overflowX = 'hidden';
+      elements.main_container.style.overflowY = 'auto';
+      apollo.addClass(elements.scroll_indicator,'done');
+    }
+  }
 
 }());

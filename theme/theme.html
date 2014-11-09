@@ -41,6 +41,11 @@
     <section class="header-mobile-navigation visible-xs">
       <section class="mobile-menu">
         <ul class="list-unstyled">
+          <li>
+            <div class="mobile-menu-header">
+              <input placeholder="search">
+            </div>
+          </li>
           <li> <a href="#"><span>Home</span></a>
           </li>
           <li> <a href="/"><span>About</span></a>
@@ -49,29 +54,48 @@
           </li>
           <li> <a href="/"><span>Contact</span></a>
           </li>
+          <li>
+            <div class="mobile-menu-footer"><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-rss"></i></a>
+            </div>
+          </li>
         </ul>
       </section>
       <section class="menu-toggle"><i class="fa fa-reorder"></i>
       </section>
     </section>
   </nav>
-  <main class="container-fluid">
+  <main id="app-main" class="container-fluid">
+    <section class="scroll-indicator visible-xs"><i class="fa fa-chevron-down first-icon"></i><i class="fa fa-chevron-down second-icon"></i>
+    </section>
     <section class="main-container row">
-      <div class="column-left col-sm-7 col-xs-12">
+      <div id="app-image-content" class="column-left col-sm-7 col-xs-12">
         <header id="app-header">
-          <section class="header-description-wrapper">
-            <section class="header-description">Description Here</section>
+          <section class="header-meta-wrapper">
+            <div class="header-meta-container">
+              <div class="header-avatar">
+                <img src="images/avatar.png">
+              </div>
+              <div class="header-description">
+                <h3 class="text-uppercase">
+                   
+                  Spectacular Tumblr Theme
+                </h3>
+              </div>
+            </div>
           </section>
           <section class="header-image"></section>
         </header>
       </div>
-      <div class="column-right col-sm-5 col-xs-12">
+      <div id="app-page-content" class="column-right col-sm-5 col-xs-12">
         <section class="header-navigation hidden-xs">
           <section class="hidden-xs"><a href="#"><i class="fa fa-reorder"></i><span>Menu</span></a><a href="#" class="pull-right"><i class="fa fa-rss"></i></a><a href="#" class="pull-right"><i class="fa fa-twitter"></i></a>
           </section>
         </section>
         <aside id="app-aside">
           <section class="aside-posts row">
+            <section class="posts-header">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis lobortis metus. Vestibulum elementum lorem dui, quis tempor felis cursus in. Quisque luctus neque magna, in eleifend nisl sagittis nec.</p>
+            </section>
             <section class="post col-xs-6 col-sm-12 col-lg-6">
               <h3>Post Number 0</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis lobortis metus. Vestibulum elementum lorem dui, quis tempor felis cursus in. Quisque luctus neque magna, in eleifend nisl sagittis nec.</p>
@@ -138,11 +162,13 @@
             </section>
           </section>
         </aside>
-        <footer id="app-footer">Footer</footer>
+        <footer id="app-footer">
+          <p>There is no dount this is a great looking theme for your blog</p>
+          <div></div>
+        </footer>
       </div>
     </section>
   </main>
-
 
   <script type="text/javascript" src="./assets/libraries.js"></script>
   <script type="text/javascript" src="./assets/theme.js"></script>

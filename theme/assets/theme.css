@@ -51,6 +51,14 @@ nav {
       height: 100%;
       text-align: center;
       width: 100%; }
+      nav .header-mobile-navigation .mobile-menu .mobile-menu-header {
+        border-bottom: 1px solid #eee; }
+        nav .header-mobile-navigation .mobile-menu .mobile-menu-header input {
+          border: none;
+          font-size: smaller;
+          color: #1abce2;
+          text-transform: uppercase;
+          text-align: center; }
       nav .header-mobile-navigation .mobile-menu ul {
         display: table-cell;
         vertical-align: middle; }
@@ -61,6 +69,10 @@ nav {
           opacity: 0; }
           nav .header-mobile-navigation .mobile-menu ul li a {
             background-color: transparent; }
+      nav .header-mobile-navigation .mobile-menu .mobile-menu-footer {
+        border-top: 1px solid #eee; }
+        nav .header-mobile-navigation .mobile-menu .mobile-menu-footer i {
+          padding: 0 30px; }
       nav .header-mobile-navigation .mobile-menu.active {
         opacity: 1; }
         nav .header-mobile-navigation .mobile-menu.active li {
@@ -85,7 +97,7 @@ nav {
       text-shadow: 0 -1px 0 #999;
       box-shadow: 0 1px 1px 0 #333; }
       nav .header-mobile-navigation .menu-toggle.active {
-        background-color: #fff;
+        background-color: transparent;
         color: #1abce2;
         color: rgba(26, 188, 226, 0.9);
         text-shadow: none;
@@ -113,6 +125,64 @@ a:link, a:visited {
 a:hover, a:active {
   color: #dc143c; }
 
+.scroll-indicator {
+  -webkit-transition: opacity 500ms;
+          transition: opacity 500ms;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+  margin: 30px 20px;
+  font-size: xx-large;
+  text-align: center; }
+  .scroll-indicator i {
+    width: 40px;
+    display: block;
+    position: fixed;
+    opacity: 0; }
+  .scroll-indicator .first-icon {
+    -webkit-animation: fadeMove 1500ms infinite;
+            animation: fadeMove 1500ms infinite; }
+  .scroll-indicator .second-icon {
+    -webkit-animation: fadeMove 1500ms infinite 750ms;
+            animation: fadeMove 1500ms infinite 750ms; }
+  .scroll-indicator.done {
+    opacity: 0; }
+
+@-webkit-keyframes fadeMove {
+  0% {
+    opacity: 0;
+    font-size: 20px;
+    bottom: 50px; }
+
+  50% {
+    opacity: 1;
+    font-size: 30px; }
+
+  100% {
+    opacity: 0;
+    font-size: 20px;
+    bottom: 30px; } }
+
+@keyframes fadeMove {
+  0% {
+    opacity: 0;
+    font-size: 20px;
+    bottom: 50px; }
+
+  50% {
+    opacity: 1;
+    font-size: 30px; }
+
+  100% {
+    opacity: 0;
+    font-size: 20px;
+    bottom: 30px; } }
+
+.overflows {
+  overflow-x: hidden;
+  overflow-y: auto; }
+
 .column-left, .column-right {
   padding: 0; }
 
@@ -127,14 +197,25 @@ header {
   width: 100%;
   padding: 0;
   position: fixed; }
-  header .header-description-wrapper {
-    position: absolute;
+  header .header-meta-wrapper {
     display: table;
+    width: 100%;
+    position: absolute;
     height: 100%;
     z-index: 5;
     padding: 20px; }
-  header .header-description {
+  header .header-meta-container {
     display: table-cell;
+    vertical-align: middle; }
+  header .header-avatar {
+    width: 90px;
+    margin: 0 auto;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    border-radius: 100%;
+    overflow: hidden; }
+    header .header-avatar img {
+      width: 100%; }
+  header .header-description {
     color: #fff;
     vertical-align: middle; }
   header .header-image {
@@ -155,13 +236,17 @@ aside {
   border-top: 3px solid #333; }
   aside img {
     width: 100%; }
-  aside .post {
+  aside .posts-header, aside .post {
     border-bottom: 1px solid #eee; }
+  aside .posts-header {
+    padding: 20px;
+    color: #999; }
 
 footer {
   min-height: 115px;
   color: #fff;
-  background-color: #333; }
+  background-color: #333;
+  padding: 10px; }
 
 @media (min-width: 768px) {
   header .header-image {
@@ -170,14 +255,10 @@ footer {
     width: 60%; } }
 
 @media (max-width: 767px) {
-  html, body {
-    overflow-x: hidden; }
   .main-container {
     -webkit-perspective: 1px;
             perspective: 1px;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto; }
+    height: 100vh; }
   header {
     -webkit-transform: translateZ(-1px) scale(2);
             transform: translateZ(-1px) scale(2);
@@ -187,7 +268,9 @@ footer {
     position: relative;
     top: inherit; }
   .header-description {
-    font-size: x-large; }
+    font-size: larger;
+    text-align: center;
+    margin-top: 15px; }
   aside {
     padding-top: 0; }
     aside .post {

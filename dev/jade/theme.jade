@@ -43,7 +43,11 @@ body
   nav#app-navigation
     section.header-mobile-navigation.visible-xs
       section.mobile-menu
+        
         ul.list-unstyled
+          li
+            div.mobile-menu-header
+              input(placeholder="search")
           li 
             a(href="#")
               span Home
@@ -58,19 +62,35 @@ body
           li 
             a(href="/")
               span Contact
+          li
+            div.mobile-menu-footer
+              a(href="#")
+                i.fa.fa-twitter
+              a(href="#")
+                i.fa.fa-instagram
+              a(href="#")
+                i.fa.fa-rss
       section.menu-toggle
         i.fa.fa-reorder
 
-  main.container-fluid 
+  main#app-main.container-fluid
+    section.scroll-indicator.visible-xs
+      i.fa.fa-chevron-down.first-icon
+      i.fa.fa-chevron-down.second-icon
     section.main-container.row
       
-      div.column-left.col-sm-7.col-xs-12
+      div#app-image-content.column-left.col-sm-7.col-xs-12
         header#app-header
-          section.header-description-wrapper
-            section.header-description Description Here
+          section.header-meta-wrapper
+            div.header-meta-container
+              div.header-avatar
+                img(src="images/avatar.png")
+              div.header-description 
+                h3.text-uppercase 
+                  | Spectacular Tumblr Theme
           section.header-image
 
-      div.column-right.col-sm-5.col-xs-12
+      div#app-page-content.column-right.col-sm-5.col-xs-12
         section.header-navigation.hidden-xs
           section.hidden-xs
             a(href="#")
@@ -87,21 +107,8 @@ body
           section.aside-posts.row
             include mock_data/posts
         footer#app-footer
-          | Footer
-  
-
-  //- header#app-header
-  //-   include header
-  //- nav#app-navigation.inactive
-  //-   include navigation
-  //- section#app-main
-  //-   main
-  //-     include main
-  //-   aside
-  //-     include aside
-  //- section#app-footer
-  //-   footer
-  //-     include footer
+          p There is no dount this is a great looking theme for your blog
+          div
     
   
   include scripts
