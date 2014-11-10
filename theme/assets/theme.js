@@ -3,14 +3,21 @@
 	// var drag_origin;
 
 	var elements = {
-    	mobileMenu: document.getElementById('app-navigation').querySelector('.mobile-menu'),
-    	mobileMenuButton: document.getElementById('app-navigation').querySelector('.menu-toggle'),
-    	mobileMenuButtonIcon: document.getElementById('app-navigation').querySelector('.menu-toggle').querySelector('.fa')
+    	mobileMenu: document.getElementById('app-mobile-navigation').querySelector('.mobile-menu'),
+    	mobileMenuButton: document.getElementById('app-mobile-navigation').querySelector('.mobile-menu-toggle'),
+    	mobileMenuButtonIcon: document.getElementById('app-mobile-navigation').querySelector('.mobile-menu-toggle').querySelector('.fa'),
+    	mainMenuButton: document.getElementById('main-menu-button'),
+    	mainMenu: document.getElementById('app-page-content').querySelector('.header-menu')
   	};
 
-	elements.mobileMenuButton.addEventListener('click', onMenuClick);
+	elements.mobileMenuButton.addEventListener('click', onMobileMenuClick);
+	elements.mainMenuButton.addEventListener('click', onMenuClick);
 
 	function onMenuClick(){
+		apollo.toggleClass(elements.mainMenu,'open');
+	}
+
+	function onMobileMenuClick(){
 
 		elements.mobileMenu.style.display = 'table';
 
@@ -76,10 +83,10 @@
 
   function hideIndicator(){
     if( window.innerWidth < 768 ){
-      console.log('hello');
       document.removeEventListener('scroll', onBodyScroll);
-      elements.main_container.style.overflowX = 'hidden';
-      elements.main_container.style.overflowY = 'auto';
+      apollo.addClass(elements.main_container, 'overflows');
+      apollo.addClass(document.documentElement, 'overflows');
+      apollo.addClass(document.body, 'overflows');
       apollo.addClass(elements.scroll_indicator,'done');
     }
   }

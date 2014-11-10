@@ -2,19 +2,30 @@ html,
 body { 
 	&.active { 
 		overflow: hidden;
-		>nav {top: 0;}
+		//>nav {top: 0;}
 	}
 }
 
 .header-navigation {
-	background-color: $nav-background-color;
+	background-color: $nav-bar-background-color;
 	font-family: $nav-font-family;
 	font-size: 1.3em;
 	position: fixed;
 	width: inherit;
-	height: 34px;
 	z-index: 5;
 	
+	
+}
+
+.header-menu-container {
+	left: -200px;
+	position: absolute;
+	overflow: hidden;
+	width: 200px;
+	height: 600px;
+}
+
+.header-menu-bar {
 	a { 
 		padding: 5px 10px;
 		display: inline-block;
@@ -34,7 +45,52 @@ body {
 		text-decoration: none;
 	}
 
-	.fa-reorder { margin-right: 10px; }
+	.fa-reorder { margin: 0 10px 0 5px; }
+}
+
+.main-menu-button {
+	float: left;
+	padding: 5px;
+	cursor: pointer;
+	color: $nav-link-hover;
+	&:hover { background-color: $nav-link-background-hover; }
+}
+
+.header-menu {
+	transition: left 250ms, opacity 250ms;
+	opacity: 0;
+	position: absolute;
+	background: $nav-background-color;
+	left: 200px;
+	width: 200px;
+	border-right: 1px solid #333;
+	padding: 10px;
+
+	ul { margin: 0;}
+	
+	li {
+		transition: all 250ms 250ms;
+		margin-left: 10px;
+		opacity: 0;
+		margin-top: 15px;
+
+		a { 
+			width: 100%;
+			display: inline-block;
+		}
+
+		&:first-child { margin-top: 0;}
+	}
+
+	&.open {
+		left: 0;
+		opacity: 1;
+
+		li {
+			margin-left: 0;
+			opacity: 1;
+		}
+	}
 }
 
 nav {
@@ -43,43 +99,29 @@ nav {
 	z-index: 10;
 	width: 100%;
 	
-	.header-mobile-navigation {
-		display: none;
+	.mobile-navigation {
+
 		height: 100%; 
 		font-size: 28px;
-		
-		a:link, 
-		a:visited { 
-			color: $theme-color; 
-		}
-
-		a:hover, 
-		a:active { 
-			color: $accent-color;
-			text-decoration: none;
-		}
 
 		.mobile-menu {
 			transition: all 250ms;
 			display: none;
 			position: fixed;
 			opacity: 0;
-			background-color: #fff;
+			background-color: $nav-background-color;
 			margin: 0 -15px;
 			height: 100%;
 			text-align: center;
 
 			width: 100%;
 			
-			.mobile-menu-header{
-				border-bottom: 1px solid #eee;
+			.mobile-menu-header {
+				border-bottom: 1px solid $theme-color;
 				
-				input{ 
-					border: none;
-					font-size: smaller;
-					color: $accent-color;
-					text-transform: uppercase;
+				input { 
 					text-align: center;
+					border: 0;
 				}
 			}
 
@@ -95,10 +137,12 @@ nav {
 					a { background-color: transparent;}
 				}
 			}
-			.mobile-menu-footer{
-				border-top:1px solid #eee;
-				i{ padding: 0 30px; }
+
+			.mobile-menu-footer {
+				border-top: 1px solid $theme-color;
+				i { padding: 5px 30px; }
 			}
+			
 			&.active { 
 				opacity: 1;
 
@@ -110,7 +154,7 @@ nav {
 		}
 
 
-		.menu-toggle { 
+		.mobile-menu-toggle { 
 			transition: all 250ms;
 			
 			// alpha fallback

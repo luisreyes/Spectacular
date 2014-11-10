@@ -1,0 +1,35 @@
+.scroll-indicator {
+	transition: opacity 500ms;
+	color: #fff;
+	position: fixed;
+	bottom: 0;
+	z-index: 10;
+	margin: 30px 20px;
+	font-size: xx-large;
+	text-align: center;
+	
+	i {
+		width: 40px;
+		display: block;
+		position: fixed;
+		opacity: 0;
+	}
+
+	.first-icon {
+		animation: fadeMove 1500ms infinite;
+		
+	}
+
+	.second-icon {
+		animation: fadeMove 1500ms infinite 750ms;
+	}
+
+	&.done { opacity: 0; }
+
+}
+
+@keyframes fadeMove {
+    0% { opacity: 0;	font-size: 10px; bottom: 30px; }
+    50% { opacity: 1; 	font-size: 30px; }
+    100% { opacity: 0; 	font-size: 10px; bottom: 50px; }
+}

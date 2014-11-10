@@ -1,0 +1,41 @@
+html,
+body { margin: 0; padding: 0; height: 100%;  }
+
+body { 
+	font-size: 13px;
+	font-family: $base-font-family;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 { font-family: $h-font-family; }
+
+a { transition: all 250ms; }
+
+a:link,
+a:visited { color: $link-color; }
+
+a:hover,
+a:active { color: $link-hover;}
+
+img { width: 100%; }
+
+input { 
+	width: 100%;
+	border: 0;
+	border-bottom: 1px solid #eee;
+	background: none;
+}
+
+.column-left { height: 100%;}
+
+.column-left,
+.column-right { padding: 0; }
+
+main,
+.main-container { height: 100%; }
+
+

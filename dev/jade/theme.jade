@@ -6,10 +6,11 @@ doctype html
 <html lang="en">
 <!--<![endif]-->
 //======================================================
-//   ________ ________  _______                         
-//  /_  __/ // / __/  |/  / __/                         
-//   / / / _  / _// /|_/ / _/                           
-//  /_/ /_//_/___/_/  /_/___/                           
+//    ____             __                __             
+//   / __/__  ___ ____/ /____ _______ __/ /__ _____     
+//  _\ \/ _ \/ -_) __/ __/ _ `/ __/ // / / _ `/ __/     
+// /___/ .__/\__/\__/\__/\_,_/\__/\_,_/_/\_,_/_/        
+//    /_/                                               
 //                                                      
 //======================================================
 // Author: Luis Reyes                                   
@@ -23,7 +24,7 @@ head
   <!--[if lt IE 9]>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
   <![endif]-->
-  title {Title}
+  title Spectacular
   meta(charset="utf-8")
   meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
   //- |{block:Description}
@@ -40,46 +41,22 @@ head
 
 body
   
-  nav#app-navigation
-    section.header-mobile-navigation.visible-xs
-      section.mobile-menu
-        
-        ul.list-unstyled
-          li
-            div.mobile-menu-header
-              input(placeholder="search")
-          li 
-            a(href="#")
-              span Home
-          li 
-            a(href="/")
-              span About
-
-          li 
-            a(href="/")
-              span Features
-
-          li 
-            a(href="/")
-              span Contact
-          li
-            div.mobile-menu-footer
-              a(href="#")
-                i.fa.fa-twitter
-              a(href="#")
-                i.fa.fa-instagram
-              a(href="#")
-                i.fa.fa-rss
-      section.menu-toggle
-        i.fa.fa-reorder
+  nav#app-mobile-navigation.visible-xs
+    section.mobile-navigation
+      include mobile-menu
 
   main#app-main.container-fluid
+
+    //- Mobile Scroll Indicator
     section.scroll-indicator.visible-xs
-      i.fa.fa-chevron-down.first-icon
-      i.fa.fa-chevron-down.second-icon
+      i.fa.fa-chevron-up.first-icon
+      i.fa.fa-chevron-up.second-icon
+    
+    //- Global Wrapper
     section.main-container.row
       
-      div#app-image-content.column-left.col-sm-7.col-xs-12
+      //- Large Section with Background Image and
+      div#app-header-content.column-left.col-sm-7.col-xs-12
         header#app-header
           section.header-meta-wrapper
             div.header-meta-container
@@ -90,25 +67,15 @@ body
                   | Spectacular Tumblr Theme
           section.header-image
 
+      //- Large Section with Posts and Other Page Contents
       div#app-page-content.column-right.col-sm-5.col-xs-12
         section.header-navigation.hidden-xs
-          section.hidden-xs
-            a(href="#")
-              i.fa.fa-reorder
-              span Menu
-
-            a(href="#").pull-right
-              i.fa.fa-rss
-                
-            a(href="#").pull-right
-              i.fa.fa-twitter
-
+          include main-menu
+          
         aside#app-aside
-          section.aside-posts.row
-            include mock_data/posts
+          include aside
         footer#app-footer
-          p There is no dount this is a great looking theme for your blog
-          div
+          include footer
     
   
   include scripts

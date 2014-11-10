@@ -10,7 +10,8 @@ $nav-link-color: #fff;
 $nav-link-hover: #fff;
 $nav-link-background-color: transparent;
 $nav-link-background-hover: $accent-color;
-$nav-background-color: $theme-color;
+$nav-background-color: rgba(0, 0, 0, .85);
+$nav-bar-background-color: $theme-color;
 
 $nav-mobile-button-icon-color: #fff;
 $nav-mobile-button-background-color: rgba($accent-color, .9);
@@ -18,5 +19,5 @@ $nav-mobile-button-background-color: rgba($accent-color, .9);
 $footer-background-color: #333;
 $footer-color: #fff;
 
-$link-color: #f00;
-$link-hover: #dc143c;
+$link-color: $accent-color;
+$link-hover: $accent-color;

@@ -13,10 +13,10 @@
 
   function hideIndicator(){
     if( window.innerWidth < 768 ){
-      console.log('hello');
       document.removeEventListener('scroll', onBodyScroll);
-      elements.main_container.style.overflowX = 'hidden';
-      elements.main_container.style.overflowY = 'auto';
+      apollo.addClass(elements.main_container, 'overflows');
+      apollo.addClass(document.documentElement, 'overflows');
+      apollo.addClass(document.body, 'overflows');
       apollo.addClass(elements.scroll_indicator,'done');
     }
   }
